@@ -1,0 +1,42 @@
+0%0%quicksort algorithm%0
+1%0%holiday and binary tree%5
+2%0%throwing an exception%3
+3%0%character handling library of congress%1
+4%0%resource acquisition is initialization%4
+5%0%end of file not found%1
+6%0%principle of least privilege%4
+7%0%dereferencing a null pointer%3
+8%0%hexadecimal digit%0
+9%0%recursive mergesort%0
+10%0%constant reverse iterator%0
+11%0%pure virtual function%0
+12%0%dynamically allocating memory for an array%3
+13%0%misplaced semicolon%0
+14%0%the standard template library%0
+15%0%predicate function%0
+16%0%version control system%0
+17%0%processing objects with polymorphism%3
+18%0%implementation defined behavior%0
+19%0%overloading the prefix increment operator%3
+20%0%breaking out of an infinite loop%3
+21%0%divide and conquer algorithm%0
+22%0%calling a pure virtual function%3
+23%0%dennis ritchie inventor of c%6
+24%0%bjarne stroustrup inventor of c plus plus%6
+25%0%james gosling inventor of java%6
+26%0%guido van rossum inventor of python%6
+27%0%you are not expected to understand this%4
+28%0%all your base are belong to us%4
+29%0%rubber duck debugging%4
+30%0%substitution failure is not an error%4
+31%0%paying off technical debt%3
+32%0%system operator overloading%1
+33%0%personal portfolio project%0
+34%0%priority queue%0
+35%0%regular expression of interest%1
+36%0%unresolved external symbol technologies%1
+37%0%amazing grace hopper%1
+38%0%edsger dijkstra inventor of structured programming%6
+39%0%almost before we knew it we had left the ground%4
+40%0%connecting to an external library%3
+41%0%reading the documentation of an api%3

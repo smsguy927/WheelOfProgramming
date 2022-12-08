@@ -1,0 +1,3 @@
+C:/Users/smsgu/CLionProjects/WheelOfProgramming/cmake-build-debug/CMakeFiles/WheelOfProgrammingTest.dir
+C:/Users/smsgu/CLionProjects/WheelOfProgramming/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/smsgu/CLionProjects/WheelOfProgramming/cmake-build-debug/CMakeFiles/rebuild_cache.dir
