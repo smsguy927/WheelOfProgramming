@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="WheelOfProgrammingTest"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="msvc8"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/Users/smsgu/CLionProjects/WheelOfProgramming/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\smsgu\CLionProjects\WheelOfProgramming\cmake-build-debug\Makefile VERBOSE=1 all"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\smsgu\CLionProjects\WheelOfProgramming\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\smsgu\CLionProjects\WheelOfProgramming\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\smsgu\CLionProjects\WheelOfProgramming\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="WheelOfProgrammingTest">
+				<Option output="C:/Users/smsgu/CLionProjects/WheelOfProgramming/cmake-build-debug/WheelOfProgrammingTest.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/smsgu/CLionProjects/WheelOfProgramming/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\VC\Tools\MSVC\14.29.30133\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\shared"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\winrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\cppwinrt"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\smsgu\CLionProjects\WheelOfProgramming\cmake-build-debug\Makefile VERBOSE=1 WheelOfProgrammingTest"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\smsgu\CLionProjects\WheelOfProgramming\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\smsgu\CLionProjects\WheelOfProgramming\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\smsgu\CLionProjects\WheelOfProgramming\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="WheelOfProgrammingTest/fast">
+				<Option output="C:/Users/smsgu/CLionProjects/WheelOfProgramming/cmake-build-debug/WheelOfProgrammingTest.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/smsgu/CLionProjects/WheelOfProgramming/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\VC\Tools\MSVC\14.29.30133\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\shared"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\winrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\cppwinrt"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\smsgu\CLionProjects\WheelOfProgramming\cmake-build-debug\Makefile VERBOSE=1 WheelOfProgrammingTest/fast"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\smsgu\CLionProjects\WheelOfProgramming\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\smsgu\CLionProjects\WheelOfProgramming\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\smsgu\CLionProjects\WheelOfProgramming\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/Users/smsgu/CLionProjects/WheelOfProgramming/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\smsgu\CLionProjects\WheelOfProgramming\cmake-build-debug\Makefile VERBOSE=1 edit_cache"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\smsgu\CLionProjects\WheelOfProgramming\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\smsgu\CLionProjects\WheelOfProgramming\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\smsgu\CLionProjects\WheelOfProgramming\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/Users/smsgu/CLionProjects/WheelOfProgramming/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\smsgu\CLionProjects\WheelOfProgramming\cmake-build-debug\Makefile VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\smsgu\CLionProjects\WheelOfProgramming\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\smsgu\CLionProjects\WheelOfProgramming\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\smsgu\CLionProjects\WheelOfProgramming\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/Users/smsgu/CLionProjects/WheelOfProgramming/BonusRound.cpp">
+			<Option target="WheelOfProgrammingTest"/>
+		</Unit>
+		<Unit filename="C:/Users/smsgu/CLionProjects/WheelOfProgramming/BonusRound.h">
+			<Option target="WheelOfProgrammingTest"/>
+		</Unit>
+		<Unit filename="C:/Users/smsgu/CLionProjects/WheelOfProgramming/Game.cpp">
+			<Option target="WheelOfProgrammingTest"/>
+		</Unit>
+		<Unit filename="C:/Users/smsgu/CLionProjects/WheelOfProgramming/Game.h">
+			<Option target="WheelOfProgrammingTest"/>
+		</Unit>
+		<Unit filename="C:/Users/smsgu/CLionProjects/WheelOfProgramming/GameMode.cpp">
+			<Option target="WheelOfProgrammingTest"/>
+		</Unit>
+		<Unit filename="C:/Users/smsgu/CLionProjects/WheelOfProgramming/GameMode.h">
+			<Option target="WheelOfProgrammingTest"/>
+		</Unit>
+		<Unit filename="C:/Users/smsgu/CLionProjects/WheelOfProgramming/GameShowHost.cpp">
+			<Option target="WheelOfProgrammingTest"/>
+		</Unit>
+		<Unit filename="C:/Users/smsgu/CLionProjects/WheelOfProgramming/GameShowHost.h">
+			<Option target="WheelOfProgrammingTest"/>
+		</Unit>
+		<Unit filename="C:/Users/smsgu/CLionProjects/WheelOfProgramming/JrdTimerUtils.cpp">
+			<Option target="WheelOfProgrammingTest"/>
+		</Unit>
+		<Unit filename="C:/Users/smsgu/CLionProjects/WheelOfProgramming/JrdTimerUtils.h">
+			<Option target="WheelOfProgrammingTest"/>
+		</Unit>
+		<Unit filename="C:/Users/smsgu/CLionProjects/WheelOfProgramming/Player.cpp">
+			<Option target="WheelOfProgrammingTest"/>
+		</Unit>
+		<Unit filename="C:/Users/smsgu/CLionProjects/WheelOfProgramming/Player.h">
+			<Option target="WheelOfProgrammingTest"/>
+		</Unit>
+		<Unit filename="C:/Users/smsgu/CLionProjects/WheelOfProgramming/PlayerScore.cpp">
+			<Option target="WheelOfProgrammingTest"/>
+		</Unit>
+		<Unit filename="C:/Users/smsgu/CLionProjects/WheelOfProgramming/PlayerScore.h">
+			<Option target="WheelOfProgrammingTest"/>
+		</Unit>
+		<Unit filename="C:/Users/smsgu/CLionProjects/WheelOfProgramming/Puzzle.cpp">
+			<Option target="WheelOfProgrammingTest"/>
+		</Unit>
+		<Unit filename="C:/Users/smsgu/CLionProjects/WheelOfProgramming/Puzzle.h">
+			<Option target="WheelOfProgrammingTest"/>
+		</Unit>
+		<Unit filename="C:/Users/smsgu/CLionProjects/WheelOfProgramming/Round.cpp">
+			<Option target="WheelOfProgrammingTest"/>
+		</Unit>
+		<Unit filename="C:/Users/smsgu/CLionProjects/WheelOfProgramming/Round.h">
+			<Option target="WheelOfProgrammingTest"/>
+		</Unit>
+		<Unit filename="C:/Users/smsgu/CLionProjects/WheelOfProgramming/SpinResult.cpp">
+			<Option target="WheelOfProgrammingTest"/>
+		</Unit>
+		<Unit filename="C:/Users/smsgu/CLionProjects/WheelOfProgramming/SpinResult.h">
+			<Option target="WheelOfProgrammingTest"/>
+		</Unit>
+		<Unit filename="C:/Users/smsgu/CLionProjects/WheelOfProgramming/Turn.cpp">
+			<Option target="WheelOfProgrammingTest"/>
+		</Unit>
+		<Unit filename="C:/Users/smsgu/CLionProjects/WheelOfProgramming/Turn.h">
+			<Option target="WheelOfProgrammingTest"/>
+		</Unit>
+		<Unit filename="C:/Users/smsgu/CLionProjects/WheelOfProgramming/Wheel.cpp">
+			<Option target="WheelOfProgrammingTest"/>
+		</Unit>
+		<Unit filename="C:/Users/smsgu/CLionProjects/WheelOfProgramming/Wheel.h">
+			<Option target="WheelOfProgrammingTest"/>
+		</Unit>
+		<Unit filename="C:/Users/smsgu/CLionProjects/WheelOfProgramming/main.cpp">
+			<Option target="WheelOfProgrammingTest"/>
+		</Unit>
+		<Unit filename="C:/Users/smsgu/CLionProjects/WheelOfProgramming/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
