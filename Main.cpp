@@ -1,47 +1,25 @@
 ﻿#include <iostream>
-#include "GameShowHost.h"
+
+#include "Game.h"
 
 
+//#include "GameShowHost.h"
+//char getSecretHostNameChoice();
+//std::string getSecretHostName();
 
-char getSecretHostNameChoice();
-std::string getSecretHostName();
 
-//const std::chrono::duration<int, std::milli> oneSecInMs(1000);
 
 
 
 
 int main() {
-    const char YES = 'y';
-    const char SECRET_HOST = 'z';
-    const char SECRET_SKIP_INTRO = 'x';
+
     char playAgain = YES;
     do {
-        char secretHostNameChoice = getSecretHostNameChoice();
-        GameShowHost gsHost;
-        if(secretHostNameChoice == SECRET_HOST) {
-            std::string secretHostName = getSecretHostName();
-            gsHost = GameShowHost(secretHostName);
-        } else {
-            gsHost = GameShowHost();
-        }
-        if(secretHostNameChoice != SECRET_SKIP_INTRO){
-            gsHost.sayIntroduction();
-        }
+        Game game;
+        game.setup();
+        game.play();
 
-        int gameLength = GameShowHost::generateGameLength();
-        char explainRules = GameShowHost::askToExplainRules();
-        if (explainRules == YES) {
-            GameShowHost::explainRules();
-        }
-        char gameMode = gsHost.generateGameMode();
-        gsHost.startGame(gameLength, gameMode);
-        if(secretHostNameChoice != SECRET_SKIP_INTRO) {
-            gsHost.introducePlayers();
-        }
-
-
-        gsHost.playGame();
 
         std::cout << "Do you want to play again?" << std::endl;
         std::cout << "Press " << YES << " for yes." << std::endl;
@@ -50,7 +28,7 @@ int main() {
     std::cout << "Hello, World!" << std::endl;
     return 0;
 }
-
+/*
 char getSecretHostNameChoice() {
     std::cout << "Press any key to continue..." << std::endl;
 
@@ -64,3 +42,4 @@ std::string getSecretHostName() {
     std::getline(std::cin >> std::ws, myName);
     return myName;
 }
+*/

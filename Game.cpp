@@ -9,7 +9,7 @@
 
 
 Game::Game() {
-    this->maxTurns = 0;
+    this->maxTurns = 10;
     this->currentTurn = 0;
     this->currentTurnPlayerID = 0;
     this->currentRound = 0;
@@ -581,8 +581,8 @@ void Game::handleSolve() {
     turnRef.setSolveTimeUsedMs(timeUsedMs);
     turnRef.setTurnAction(TnAction::solve);
     turnRef.setSolveAttempt(attempt);
-    if(puzzleRef.isCorrectSolution(attempt) && mode.getSymbol() == static_cast<char>(GameModeID::light)
-    || turnRef.getSolveTimeUsedMs() <= SOLVE_TIME_LIMIT_MS){
+    if(puzzleRef.isCorrectSolution(attempt) && (mode.getSymbol() == static_cast<char>(GameModeID::light)
+    || turnRef.getSolveTimeUsedMs() <= SOLVE_TIME_LIMIT_MS)){
         puzzleRef.setDisplay(attempt);
         turnRef.setSolveResult(SolveResult::right);
         std::cout << "That's right!" << std::endl;
@@ -1208,6 +1208,58 @@ GameMode &Game::getGameModeRef() {
 bool Game::isInTime() {
     return mode.getSymbol() == static_cast<char>(GameModeID::light) ||
     getCurrentTurnRef().getLetterTimeUsedMs() <= LETTER_TIME_LIMIT_MS ;
+}
+
+void Game::setup() {
+    setDefaultPlayers();
+    generateRegularPuzzles();
+    generateBonusPuzzles();
+    char secretHostNameChoice = getSecretHostNameChoice();
+
+    if(secretHostNameChoice == SECRET_HOST) {
+        std::string secretHostName = getSecretHostName();
+        this->gsHost.setName(secretHostName);
+    }
+    if(secretHostNameChoice != SECRET_SKIP_INTRO){
+        this->gsHost.sayIntroduction();
+    }
+
+    int gameLength = GameShowHost::generateGameLength();
+    char explainRules = GameShowHost::askToExplainRules();
+    if (explainRules == YES) {
+        GameShowHost::explainRules();
+    }
+    char gameMode = GameShowHost::generateGameMode();
+    setGameParameters(gameLength, gameMode);
+    if(secretHostNameChoice != SECRET_SKIP_INTRO) {
+        gsHost.introducePlayers(players);
+    }
+}
+
+char Game::getSecretHostNameChoice() {
+    std::cout << "Press any key to continue..." << std::endl;
+    char choice = static_cast<char>(tolower(std::cin.get()));
+    return choice;
+}
+
+std::string Game::getSecretHostName() {
+    std::string myName;
+    std::cout << "Hello, game show host. What is your name?" << std::endl;
+    std::getline(std::cin >> std::ws, myName);
+    return myName;
+}
+
+void Game::setGameParameters(int length, char mode2) {
+    setMaxTurns(MAX_TURNS[length]);
+    setMode(mode2);
+
+    if(maxTurns == 0) {
+        std::cout << "So you're a software tester, eh? " << std::endl;
+    }
+    std::cout << "Let's play for " << maxTurns <<" turns." << std::endl;
+    setDefaultPlayers();
+    generateRegularPuzzles();
+    generateBonusPuzzles();
 }
 
 

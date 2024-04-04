@@ -6,10 +6,11 @@
 #include <chrono>
 #include <iostream>
 #include <utility>
-#include "Game.h"
+
 
 #include "JrdTimerUtils.h"
-#include "GameMode.h"
+#include "Player.h"
+//
 
 const std::string GS_HOST_DEFAULT_NAME = "Mr. Roboto";
 
@@ -18,25 +19,25 @@ public:
     GameShowHost();
 
     void setName(std::string);
-    void setGame(Game);
+
 
     std::string getName();
-    Game getGame();
+
 
     explicit GameShowHost(std::string);
     void sayIntroduction();
     static int generateGameLength();
     static char askToExplainRules();
     static void explainRules();
-    void startGame(int, char);
-    void introducePlayers();
-    void playGame();
+    //void startGame(int, char);
+    static void introducePlayers(std::array<Player, NUM_PLAYERS>);
+    static void announcePlay();
     static char generateGameMode();
     static char validateGameMode();
     static void announceGameModeChoices();
 private:
     std::string name;
-    Game game;
+
 
 };
 

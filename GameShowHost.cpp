@@ -10,8 +10,8 @@
 
 
 void GameShowHost::sayIntroduction() {
-    std::chrono::duration<int, std::milli> oneSecInMs(1000);
-    std::cout << "Hello and welcome to the final program of Advanced C++" << std::endl;
+
+    std::cout << "From the Riverwalk Amphitheatre in San Antonio, Texas" << std::endl;
     std::cout << "It's time for ..." << std::endl << std::endl;
     std::this_thread::sleep_for(oneSecInMs);
     std::cout << "Wheel" << std::endl;
@@ -33,11 +33,11 @@ GameShowHost::GameShowHost() {
 [[maybe_unused]] GameShowHost::GameShowHost(std::string gsHostName) {
     this->name = std::move(gsHostName);
 }
-
+/*
 void GameShowHost::startGame(int gameSize, char gameMode) {
-    this->game.setMaxTurns(MAX_TURNS[gameSize]);
-    this->game.setMode(gameMode);
-    int maxTurns = this->game.getMaxTurns();
+    //this->game.setMaxTurns(MAX_TURNS[gameSize]);
+    //this->game.setMode(gameMode);
+    //int maxTurns = this->game.getMaxTurns();
     if(maxTurns == 0) {
         std::cout << "So you're a software tester, eh? " << std::endl;
     }
@@ -47,6 +47,7 @@ void GameShowHost::startGame(int gameSize, char gameMode) {
     this->game.generateBonusPuzzles();
 
 }
+ */
 void GameShowHost::setName(std::string myName) {
     this->name = std::move(myName);
 }
@@ -54,13 +55,9 @@ std::string GameShowHost::getName() {
     return this->name;
 }
 
-void GameShowHost::setGame(Game gm) {
-    this->game = gm;
-}
 
-Game GameShowHost::getGame() {
-    return this->game;
-}
+
+
 
 int GameShowHost::generateGameLength() {
     std::cout << "How long of a game do you want?" << std::endl;
@@ -108,41 +105,29 @@ void GameShowHost::explainRules() {
 
 }
 
-void GameShowHost::introducePlayers() {
+void GameShowHost::introducePlayers(std::array<Player, NUM_PLAYERS>players) {
 
     std::cout << "Let's introduce our players." << std::endl;
     std::this_thread::sleep_for(oneSecInMs);
-    std::cout << "Player 1, what's your name?" << std::endl;
-    std::this_thread::sleep_for(oneSecInMs);
-    std::cout << "My name is " << this->game.getPlayer(P1_INDEX).getName() << "." << std::endl;
-    std::this_thread::sleep_for(oneSecInMs);
-    std::cout << "And what's your favorite Programming Language?" << std::endl;
-    std::this_thread::sleep_for(oneSecInMs);
-    std::cout << "My favorite programming language is " << this->game.getPlayer(P1_INDEX).getFavoriteCodingLanguage() << "." << std::endl;
-    std::this_thread::sleep_for(oneSecInMs);
-    std::cout << "Player 2, what's your name?" << std::endl;
-    std::this_thread::sleep_for(oneSecInMs);
-    std::cout << "My name is " << this->game.getPlayer(P2_INDEX).getName() << "." << std::endl;
-    std::this_thread::sleep_for(oneSecInMs);
-    std::cout << "And what's your favorite Programming Language?" << std::endl;
-    std::this_thread::sleep_for(oneSecInMs);
-    std::cout << "My favorite programming language is " << this->game.getPlayer(P2_INDEX).getFavoriteCodingLanguage() << "." << std::endl;
-    std::this_thread::sleep_for(oneSecInMs);
-    std::cout << "Player 3, what's your name?" << std::endl;
-    std::this_thread::sleep_for(oneSecInMs);
-    std::cout << "My name is " << this->game.getPlayer(P3_INDEX).getName() << "." << std::endl;
-    std::this_thread::sleep_for(oneSecInMs);
-    std::cout << "And what's your favorite Programming Language?" << std::endl;
-    std::this_thread::sleep_for(oneSecInMs);
-    std::cout << "My favorite programming language is " << this->game.getPlayer(P3_INDEX).getFavoriteCodingLanguage() << "." << std::endl;
-    std::this_thread::sleep_for(oneSecInMs);
+    for(int i = 0; i < players.size(); i++){
+        std::cout << "Player " << i + 1 << ", what's your name?" << std::endl;
+        std::this_thread::sleep_for(oneSecInMs);
+        std::cout << "My name is " << players[i].getName() << "." << std::endl;
+        std::this_thread::sleep_for(oneSecInMs);
+        std::cout << "And what's your favorite Programming Language?" << std::endl;
+        std::this_thread::sleep_for(oneSecInMs);
+        std::cout << "My favorite programming language is "
+        << players[i].getFavoriteCodingLanguage() << "." << std::endl;
+        std::this_thread::sleep_for(oneSecInMs);
+    }
 }
 
-void GameShowHost::playGame() {
+
+void GameShowHost::announcePlay() {
 
     std::cout << "Let's play!" << std::endl;
     std::this_thread::sleep_for(oneSecInMs);
-    this->game.play();
+
 }
 
 char GameShowHost::generateGameMode() {

@@ -26,46 +26,16 @@
 #include "JrdTimerUtils.h"
 #include "BonusRound.h"
 #include "GameMode.h"
-
-enum class GameSize
-{
-    testing,
-    nano,
-    micro,
-    shorts, // short is a reserved word
-    medium,
-    longs, // long is a reserved word
-    extreme
-};
+#include "GameShowHost.h"
 
 
 
-const std::chrono::duration<int, std::milli> oneSecInMs(1000);
-
-const char YES = 'y';
-const char NO = 'n';
-const char NULL_CHAR = '!';
 
 
-const int GAME_SIZES = 7;
-const int NUM_PLAYERS = 3;
-
-const int SOLVE_BONUS = 500;
-const int FINAL_SPIN_BONUS = 1000;
-
-const int PRIZE_VALUE = 8192;
-const int GAME_NULL_INT = -555;
-
-const int BIT_SHIFTER_RIGHT = 1;
-const int BIT_SHIFTER_WRONG = 2;
-
-const std::pair<int, int> EXPRESS_TURN_FRACTION{2,3};
-
-const std::string PUZZLES_FILENAME = "Puzzles.txt";
-const std::string BONUS_FILENAME = "BonusPuzzles.txt";
 
 
-const std::array<int, int(GameSize::extreme) + 1>MAX_TURNS{0, 10, 20, 30,50,70,100};
+
+
 
 
 class Game {
@@ -77,7 +47,6 @@ public:
     void setCurrentRound(int);
     void setCurrentRoundTurn(int);
     void setCurrentRoundTypeID(int);
-
     void setIsAfterFinalSpin(bool);
     void setIsExpress(bool);
     void setPlayers(std::array<Player, NUM_PLAYERS>);
@@ -97,15 +66,12 @@ public:
     void passTurn();
     [[nodiscard]] int calcStartPlayer() const;
     [[nodiscard]] TurnInit generateTurnInit() const;
-
-
     [[nodiscard]] int getMaxTurns() const;
     [[nodiscard]] int getCurrentTurn() const;
     [[nodiscard]] int getCurrentTurnPlayerID() const;
     [[nodiscard]] int getCurrentRound() const;
     [[nodiscard]] int getCurrentRoundTurn() const;
     [[nodiscard]] int getCurrentRoundTypeID() const;
-
     [[nodiscard]] bool getIsAfterFinalSpin() const;
     [[nodiscard]] bool getIsExpress() const;
     std::array<Player, NUM_PLAYERS> getPlayers();
@@ -127,7 +93,6 @@ public:
     std::vector<Wheel>& getWheelsRef();
     Wheel getWheel(int);
     Wheel& getWheelRef(int);
-
     void generateRegularPuzzles();
     void generateBonusPuzzles();
     Round generateNewRound();
@@ -144,37 +109,25 @@ public:
     void handleSpin();
     void handleBuyAVowel();
     void handleSolve();
-
     void bankrupt();
     char generateFreeSpinChoice();
     static bool isUsingFreeSpin(char);
     bool hasFreeSpins();
     void useFreeSpin();
-
     void setCurrentPlayerFreeSpins(int);
     int getCurrentPlayerFreeSpins();
-
     void displayUsedConsonants();
     void displayUsedVowels();
     void displayPuzzle();
-
     std::string getUsedConsonants();
     std::string getUsedVowels();
     std::string getPuzzleView();
-
     PlayerScore getCurrentPlayerScore();
     PlayerScore& getCurrentPlayerScoreRef();
-
     char generateGuess();
-
-
     char validateConsonantOrVowel();
-
     void evaluateGuess();
-
-
     char getGuess();
-
     void respondToGuessResult(int);
     void applySpinSpecialEffects();
     void applySpinEffects();
@@ -224,7 +177,7 @@ public:
     GameMode& getGameModeRef();
     static bool isOutOfTime(Turn &);
     bool isInTime();
-
+    void setup();
 
 private:
     int maxTurns{};
@@ -247,11 +200,18 @@ private:
     std::vector<Wheel> wheels;
     int winningPlayerID{GAME_NULL_INT};
     BonusRound bonusRound;
+    GameShowHost gsHost;
 
     static void introducePuzzle(Puzzle &currentPuzzle) ;
 
 
     void playTurn();
+
+    static char getSecretHostNameChoice();
+
+    static std::string getSecretHostName();
+
+    void setGameParameters(int length, char mode);
 };
 
 
