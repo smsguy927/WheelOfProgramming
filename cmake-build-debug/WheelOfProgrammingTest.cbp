@@ -112,6 +112,9 @@
 		<Unit filename="C:/Users/smsgu/CLionProjects/WheelOfProgramming/JrdTimerUtils.h">
 			<Option target="WheelOfProgrammingTest"/>
 		</Unit>
+		<Unit filename="C:/Users/smsgu/CLionProjects/WheelOfProgramming/Main.cpp">
+			<Option target="WheelOfProgrammingTest"/>
+		</Unit>
 		<Unit filename="C:/Users/smsgu/CLionProjects/WheelOfProgramming/Player.cpp">
 			<Option target="WheelOfProgrammingTest"/>
 		</Unit>
@@ -152,9 +155,6 @@
 			<Option target="WheelOfProgrammingTest"/>
 		</Unit>
 		<Unit filename="C:/Users/smsgu/CLionProjects/WheelOfProgramming/Wheel.h">
-			<Option target="WheelOfProgrammingTest"/>
-		</Unit>
-		<Unit filename="C:/Users/smsgu/CLionProjects/WheelOfProgramming/main.cpp">
 			<Option target="WheelOfProgrammingTest"/>
 		</Unit>
 		<Unit filename="C:/Users/smsgu/CLionProjects/WheelOfProgramming/CMakeLists.txt">

@@ -9,7 +9,7 @@
 
 
 Game::Game() {
-    this->maxTurns = 0;
+    this->maxTurns = 10;
     this->currentTurn = 0;
     this->currentTurnPlayerID = 0;
     this->currentRound = 0;
@@ -581,8 +581,8 @@ void Game::handleSolve() {
     turnRef.setSolveTimeUsedMs(timeUsedMs);
     turnRef.setTurnAction(TnAction::solve);
     turnRef.setSolveAttempt(attempt);
-    if(puzzleRef.isCorrectSolution(attempt) && mode.getSymbol() == static_cast<char>(GameModeID::light)
-    || turnRef.getSolveTimeUsedMs() <= SOLVE_TIME_LIMIT_MS){
+    if(puzzleRef.isCorrectSolution(attempt) && (mode.getSymbol() == static_cast<char>(GameModeID::light)
+    || turnRef.getSolveTimeUsedMs() <= SOLVE_TIME_LIMIT_MS)){
         puzzleRef.setDisplay(attempt);
         turnRef.setSolveResult(SolveResult::right);
         std::cout << "That's right!" << std::endl;

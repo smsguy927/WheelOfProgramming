@@ -1,47 +1,51 @@
 ﻿#include <iostream>
-#include "GameShowHost.h"
+
+#include "Game.h"
 
 
-
+//#include "GameShowHost.h"
 char getSecretHostNameChoice();
 std::string getSecretHostName();
 
-//const std::chrono::duration<int, std::milli> oneSecInMs(1000);
+
 
 
 
 
 int main() {
-    const char YES = 'y';
-    const char SECRET_HOST = 'z';
-    const char SECRET_SKIP_INTRO = 'x';
+
     char playAgain = YES;
     do {
+        Game game;
+        game.setDefaultPlayers();
+        game.generateRegularPuzzles();
+        game.generateBonusPuzzles();
+        game.play();
         char secretHostNameChoice = getSecretHostNameChoice();
-        GameShowHost gsHost;
+        //GameShowHost gsHost;
         if(secretHostNameChoice == SECRET_HOST) {
             std::string secretHostName = getSecretHostName();
-            gsHost = GameShowHost(secretHostName);
+            //gsHost = GameShowHost(secretHostName);
         } else {
-            gsHost = GameShowHost();
+            //gsHost = GameShowHost();
         }
         if(secretHostNameChoice != SECRET_SKIP_INTRO){
-            gsHost.sayIntroduction();
+            //gsHost.sayIntroduction();
         }
 
-        int gameLength = GameShowHost::generateGameLength();
-        char explainRules = GameShowHost::askToExplainRules();
+        int gameLength = 5;//GameShowHost::generateGameLength();
+        char explainRules = NO; //GameShowHost::askToExplainRules();
         if (explainRules == YES) {
-            GameShowHost::explainRules();
+            //GameShowHost::explainRules();
         }
-        char gameMode = gsHost.generateGameMode();
-        gsHost.startGame(gameLength, gameMode);
+        char gameMode = 'l'; //gsHost.generateGameMode();
+        //gsHost.startGame(gameLength, gameMode);
         if(secretHostNameChoice != SECRET_SKIP_INTRO) {
-            gsHost.introducePlayers();
+            //gsHost.introducePlayers();
         }
 
 
-        gsHost.playGame();
+        //gsHost.playGame();
 
         std::cout << "Do you want to play again?" << std::endl;
         std::cout << "Press " << YES << " for yes." << std::endl;

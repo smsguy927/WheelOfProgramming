@@ -10,7 +10,7 @@
 
 
 void GameShowHost::sayIntroduction() {
-    std::chrono::duration<int, std::milli> oneSecInMs(1000);
+
     std::cout << "Hello and welcome to the final program of Advanced C++" << std::endl;
     std::cout << "It's time for ..." << std::endl << std::endl;
     std::this_thread::sleep_for(oneSecInMs);
