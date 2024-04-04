@@ -59,6 +59,7 @@ const std::array<int, int(GameSize::extreme) + 1>MAX_TURNS{0, 10, 20, 30,50,70,1
 
 int validate(int = 0, int = 0);
 char toLower(char);
+int clearBit(int, int);
 
 class JrdTimer {
     typedef std::chrono::high_resolution_clock high_resolution_clock;

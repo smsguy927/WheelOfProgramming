@@ -34,7 +34,6 @@ Wheel::Wheel(int round)
             wheel[wedgeCounter].special = int(WedgeID::bankrupt);
         }
 
-
         else if(wedgeCounter == 0){
             wheel[wedgeCounter].color = int(WedgeID::express);
             wheel[wedgeCounter].value = SPECIAL_VALUE;

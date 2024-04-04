@@ -137,7 +137,6 @@ void Game::generateRegularPuzzles() {
     {
         std::vector<Puzzle> puzzles2;
         std::vector<std::string>puzzleIDs;
-        int puzzlesCount = 0;
         while (puzzlesFile)
         {
             std::string record;
@@ -172,7 +171,7 @@ void Game::generateBonusPuzzles() {
     {
         std::vector<Puzzle> puzzles2;
         std::vector<std::string>puzzleIDs;
-        int puzzlesCount = 0;
+
         while (bonusPuzzlesFile)
         {
             std::string record;
@@ -225,7 +224,7 @@ Round Game::generateNewRound() {
     if(currentRound1 >= this->puzzles.size())
     {
        std::cout << "We are out of puzzles!" << std::endl;
-       return Round();
+       return {};
     }
     Puzzle pz = this->puzzles[currentRound1];
     int maxTurns2 = this->getMaxTurns();
@@ -247,9 +246,6 @@ void Game::playRound() {
     Puzzle& currentPuzzle = getPuzzleRef(currentRound);
 
     introducePuzzle(currentPuzzle);
-    // Time variable to sleep for spinning the wheel
-    std::chrono::duration<int, std::milli> timespan(1000);
-
     // A new wheel is created for each round.
     Wheel mainWheel(this->getCurrentRound());
     this->wheels.push_back(mainWheel);
@@ -290,8 +286,6 @@ void Game::playTurn() {
     turnRef.setTurnAction(static_cast<TnAction>(actionChoice.first));
     char symbol = mode.getSymbol();
     char light = static_cast<char>(GameModeID::light);
-    char normal = static_cast<char>(GameModeID::normal);
-    char strict = static_cast<char>(GameModeID::strict);
     if(symbol != light ) {
         if(turnRef.getActionTimeUsedMs() > ACTION_TIME_LIMIT_MS){
             turnRef.setActionID(static_cast<int>(TnAction::outOfTime));
@@ -448,6 +442,7 @@ void Game::displayActionChoices() {
 
     std::cout << "Player " << this->getCurrentTurnPlayerID() + 1 << ", what would you like to do?" << std::endl;
     std::cout << "Your Score is $" << getCurrentPlayerScoreRef().getCash() << std::endl;
+
     // Vowels remaining and consonants remaining cannot be 0 at the same time.
     // If they were, the puzzle would be solved!
     if (noMoreVowelsInCurrentRound())
@@ -746,7 +741,6 @@ void Game::evaluateGuess() {
     } else if(turnAction == TnAction::fsVowel && guessResult){
         handleSolve();
     }
-
 }
 
 
@@ -760,7 +754,6 @@ void Game::respondToGuessResult(int guessResult) {
     Turn& turnRef = getCurrentTurnRef();
     char guess = getGuess();
     if(Puzzle::isPzConsonant(guess)){
-
 
         getCurrentTurnRef().setConsonantsFound(guessResult);
     }
@@ -863,9 +856,30 @@ void Game::positiveBitShift() {
 }
 
 void Game::negativeBitShift() {
-    PlayerScore& playerScoreRef = getCurrentPlayerScoreRef();
-    playerScoreRef.setCash(playerScoreRef.getCash() >> BIT_SHIFTER_WRONG);
-    std::cout << "Your score has been shifted right by " << BIT_SHIFTER_WRONG << " bits." << std::endl;
+    auto scoreRef = getCurrentPlayerScoreRef();
+    int currentCash = scoreRef.getCash();
+    int currentCash2 = currentCash * 1;
+    std::vector<int>onBits = {};
+    int i = 0;
+    while(currentCash2 > 0){
+        if(currentCash2 % 2 == 1) {
+            onBits.push_back(i);
+        }
+        currentCash2 /= 2;
+        i++;
+    }
+    std::random_device rd;
+    std::mt19937 g(rd());
+    std::shuffle(onBits.begin(), onBits.end(), g);
+    if(onBits.size() <= 2) {
+        currentCash = 0;
+    } else {
+        currentCash -= (1 << onBits[0]);
+        currentCash -= (1 << onBits[1]);
+    }
+    scoreRef.setCash(currentCash);
+    std::cout << "Your score was bit blasted! Too bad!" << std::endl;
+    std::cout << "Your new score is $" << currentCash << std::endl;
 }
 
 void Game::subtractVowelPrice() {
@@ -1006,6 +1020,7 @@ void Game::handleFinalSpinLetter() {
     int timeUsedMs = static_cast<int>(jrdTimer.Elapsed().count());
     Turn& turnRef = getCurrentTurnRef();
     turnRef.setGuess(guess);
+    turnRef.setLetterTimeUsedMs(timeUsedMs);
     if(Puzzle::isPzVowel(guess)){
         getCurrentTurnRef().setTurnAction(TnAction::fsVowel);
     }
@@ -1014,8 +1029,8 @@ void Game::handleFinalSpinLetter() {
 
 int Game::determineWinner() {
     auto result = std::max_element(players.begin(), players.end());
-    int winningPlayer = result - players.begin();
-    return winningPlayer;
+    auto winningPlayer = result - players.begin();
+    return static_cast<int>(winningPlayer);
 }
 
 void Game::generateBonusRound() {
@@ -1232,7 +1247,7 @@ void Game::setup() {
     char gameMode = GameShowHost::generateGameMode();
     setGameParameters(gameLength, gameMode);
     if(secretHostNameChoice != SECRET_SKIP_INTRO) {
-        gsHost.introducePlayers(players);
+        GameShowHost::introducePlayers(players);
     }
 }
 
@@ -1261,8 +1276,3 @@ void Game::setGameParameters(int length, char mode2) {
     generateRegularPuzzles();
     generateBonusPuzzles();
 }
-
-
-
-
-

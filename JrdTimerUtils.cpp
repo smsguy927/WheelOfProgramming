@@ -124,3 +124,25 @@ char toLower(char ch) {
 }
 
 
+// Function to clear the ith bit of
+// the given number num
+int clearBit(int num, int i)
+{
+
+    // Create the mask for the ith
+    // bit unset
+    int mask = ~(1 << i);
+
+    // Return the updated value
+    return num & mask;
+}
+
+
+// Function to get the bit at the
+// ith position
+bool getBit(int num, int i)
+{
+    // Return true if the bit is
+    // set. Otherwise, return false
+    return ((num & (1 << i)) != 0);
+}
