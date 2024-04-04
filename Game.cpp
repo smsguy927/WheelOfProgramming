@@ -1007,7 +1007,7 @@ void Game::handleFinalSpinLetter() {
     Turn& turnRef = getCurrentTurnRef();
     turnRef.setGuess(guess);
     if(Puzzle::isPzVowel(guess)){
-        handleSolve();
+        getCurrentTurnRef().setTurnAction(TnAction::fsVowel);
     }
     std::cout << turns[currentTurn].getGuess() << "?" <<std::endl;
 }
